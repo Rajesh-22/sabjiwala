@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Vegetable {
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int no_items = sc.nextInt();
+        String[] veg_names = new String[no_items];
+        for (int i = 0; i <no_items ; i++)
+            veg_names[i]=sc.next();
+        int[] weights = new int[no_items];
+        for(int i=0;i<no_items;i++)
+            weights[i]=sc.nextInt();
+        int[] profits = new int[no_items];
+        for(int i=0;i<no_items;i++)
+            profits[i]=sc.nextInt();
+        int max_weight = sc.nextInt();
+        int result=0;
+        int index=0;
+        for(int i=0;i<no_items;i++){
+            int temp=(max_weight*profits[i])/weights[i];
+            if(result<temp){
+                result=temp;
+                index=i;
+            }
+
+
+        }
+        System.out.println(max_weight+" "+veg_names[index]+" "+ result);
+    }
+}
